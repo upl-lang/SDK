@@ -1,0 +1,58 @@
+  /*
+   * Copyright (c) 2020 - 2024 UPL Foundation
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+  
+  package upl.compiler;
+  
+  import upl.lexer.Channel;
+  import upl.lexer.channels.DefaultChannel;
+  import upl.parser.Parser;
+  
+  public class StringLexeme implements Parser.Lexeme {
+    
+    public String value;
+    public final Channel channel;
+    
+    public StringLexeme (String value) {
+      this (value, new DefaultChannel ());
+    }
+    
+    public StringLexeme (String value, int flags) {
+      this (value, new DefaultChannel (flags));
+    }
+    
+    public StringLexeme (String value, Channel channel) {
+      
+      this.value = value;
+      this.channel = channel;
+      
+    }
+    
+    @Override
+    public String getName () {
+      return null;
+    }
+    
+    @Override
+    public String getValue () {
+      return value;
+    }
+    
+    @Override
+    public Channel getChannel () {
+      return channel;
+    }
+    
+  }

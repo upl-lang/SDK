@@ -1,0 +1,21 @@
+  /*
+	 * Copyright (c) 2022. UPL Foundation
+	 *
+	 * All rights reserved.
+	 */
+	
+	apply plugin: 'java-library'
+  
+  dependencies {
+		
+		api project (':core')
+		api project (':db')
+		api project (':gui')
+		api project (':app')
+		
+	}
+	
+	//version = project.property ('libraryVersion')
+	
+	sourceCompatibility = JavaVersion.VERSION_11
+	targetCompatibility = JavaVersion.VERSION_11

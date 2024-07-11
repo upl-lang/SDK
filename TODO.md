@@ -1,0 +1,67 @@
+- [] += to append () (?)
+- [] == to java.utils.Objects.equals ()
+- [] {} to JSONObject
+- [] JSON comments (Jackson)
+- [] "" -> ''
+- [] ?String
+- [] Any class without extends extends Object
+- [] Class without visibility by default
+- [] Multiple inheritance
+- [] elseif
+- [] protected by default
+- [] return this; by default
+- [] Classes can't be final, methods can
+- [] package-private, package-protected
+- [] super -> parent
+- [] return pnl /= quantity;
+- [] Override needed for overriden method
+- [] TODO, FIX...
+- [] Builder and CI/CD
+- [] Autocomments
+- [] throw JSONException -> OtherException
+- [] Exception add default constructors
+- [] https://openjdk.org/jeps/441
+- [] instanceof -> equalsType ()
+
+- [] @Set, @Get
+- [] construct (String value, int value2);
+- [] value ?= new Object (); -> if (!value) value = new Object ();
+- [] Inheritance of constructors with empty body not needed
+
+- [] null -> requireNonNull
+- [] NaN & +/-Inf JSON5
+- [] Kotlin when statement: https://stackoverflow.com/a/59222038/2746883
+- [] case 5..100:
+- [] Primitives to objects (if methods not called or @Primitive) (?)
+- [] Default @NonNull, JSONArray, JSONObject, @Primitive
+- [] Object1|Object2 value -> multiple inheritance (?)
+- [] . != + ( 1 . 1 = 11) (?)
+- [] and, or
+- [] var, const
+- [] array.length to length ()
+- [] Key already exists in json warning
+- [] injected (DI) folder
+- [] Strings wrap
+- [] MVVM
+- [] Operators overloading
+- [] fn (String value) {}, bool callback = fn (String value) { return true; };
+- [] [0..10], [10..0]
+- [] for (int i in [0..10])
+- [] for (int i in [10, 20])
+- [] for ({'key': 'value'}).each () or for (key : value in {'key': 'value'})
+- [] '@throws' tag description is missing Remove tag (?)
+
+- [] Tests
+- [] @TestValue ({10, 20})
+- [] @TestResult ({20, 30})
+- [] assertEquals (10, {10, 20})
+- [] assertCond (10, '>=', {10, 20})
+
+- [] Benchmarks
+- [] @BenchmarkValue ({10, 20})
+- [] @BenchmarkResult ({20, 30})
+- [] @BenchmarkIterations, etc
+
+- [] @Deprecated ("Description")
+- [] @Value (">=" , 0)
+- [] @VisibleForTesting ?
