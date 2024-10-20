@@ -1,4 +1,4 @@
-  /*
+	/*
  * Copyright (c) 2020 - 2024 UPL Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,43 +13,43 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-  
-  package upl.parser.rules;
-  
-  import upl.parser.Parser;
-  import upl.compiler.exceptions.UnexpectedTokenException;
-  
-  public class RuleNot extends RuleOr { // ~A
-    
-    public RuleNot (Object rules) {
-      super (rules);
-    }
-    
-    /*@Override
-    protected boolean checkTokens () {
-      
-      Rule rule = rules[0];
-      
-      if (rule.isToken ()) {
-        
-        if (rule.checkToken ())
-          return true;
-        else
-          setRule ();
-        
-      } else throw new IllegalArgumentException ("Not rule can contains only tokens");
-      
-      return false;
-      
-    }*/
-    
-    @Override
-    protected void process () {
-      
-      if (getToken ())
-        if (checkTokens ())
-          throw new UnexpectedTokenException (Parser.token);
-      
-    }
-    
-  }
+	
+	package upl.parser.rules;
+	
+	import upl.compiler.exceptions.UnexpectedTokenException;
+	import upl.lexer.Lexer;
+	
+	public class RuleNot extends RuleOr { // ~A
+		
+		public RuleNot (Object rules) {
+			super (rules);
+		}
+		
+		/*@Override
+		protected boolean checkTokens () {
+			
+			Rule rule = rules[0];
+			
+			if (rule.isToken ()) {
+				
+				if (rule.checkToken ())
+					return true;
+				else
+					setRule ();
+				
+			} else throw new IllegalArgumentException ("Not rule can contains only tokens");
+			
+			return false;
+			
+		}*/
+		
+		@Override
+		public void process () {
+			
+			if (getToken ())
+				if (checkTokens ())
+					throw new UnexpectedTokenException (token);
+			
+		}
+		
+	}

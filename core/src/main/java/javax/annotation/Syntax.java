@@ -10,7 +10,7 @@ import javax.annotation.meta.When;
 @Retention(RetentionPolicy.RUNTIME)
 @TypeQualifier(applicableTo = CharSequence.class)
 public @interface Syntax {
-    String value();
+		String value();
 
-    When when() default When.ALWAYS;
+		When when() default When.ALWAYS;
 }

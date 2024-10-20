@@ -1,4 +1,4 @@
-  /*
+	/*
  * Copyright (c) 2020 - 2024 UPL Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,22 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-  
-  package upl.app.apps;
-  
-  import upl.app.Application;
-  import upl.app.design.Design;
-  import upl.gui.views.TableView;
-  
-  public class AndroidDesign extends Design {
-    
-    public AndroidDesign (Application app) {
-      super (app);
-    }
-    
-    @Override
-    public TableView getTable () {
-      return new TableView ();
-    }
-    
-  }
+	
+	package upl.app.apps;
+	
+	import upl.app.Application;
+	import upl.app.design.Design;
+	import upl.gui.views.TableView;
+	
+	public class AndroidDesign extends Design {
+		
+		public AndroidDesign (Application app) {
+			super (app);
+		}
+		
+		@Override
+		public TableView getTable () {
+			return new TableView ();
+		}
+		
+	}

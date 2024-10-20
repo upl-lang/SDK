@@ -1,7 +1,7 @@
-  package upl.core;
-  
-  public abstract class Adapter {
-    
-    public abstract String getName ();
-    
-  }
+	package upl.core;
+	
+	public abstract class Adapter {
+		
+		public abstract String getName ();
+		
+	}

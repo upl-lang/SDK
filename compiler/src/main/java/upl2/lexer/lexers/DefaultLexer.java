@@ -1,4 +1,4 @@
-  /*
+	/*
  * Copyright (c) 2020 - 2024 UPL Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-  
-  package upl2.lexer.lexers;
-  
-  import upl2.lexer.Lexer;
-  
-  public class DefaultLexer extends Lexer {
-  
-  }
+	
+	package upl2.lexer.lexers;
+	
+	import upl2.lexer.Lexer;
+	
+	public class DefaultLexer extends Lexer {
+	
+	}

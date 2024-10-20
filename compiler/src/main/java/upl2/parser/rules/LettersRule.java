@@ -1,4 +1,4 @@
-  /*
+	/*
  * Copyright (c) 2020 - 2024 UPL Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,24 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-  
-  package upl2.parser.rules;
-  
-  import upl2.parser.Parser;
-  
-  public class LettersRule extends Parser.Rule {
-    
-    public LettersRule (Quantifier quantifier, Case cond, String token) {
-      
-      this.quantifier = quantifier;
-      this.cond = cond;
-      this.token = token;
-      //this.listener = listener;
-      
-    }
-    
-    @Override
-    protected void ruleProcess () {
-    }
-    
-  }
+	
+	package upl2.parser.rules;
+	
+	import upl2.parser.Parser;
+	
+	public class LettersRule extends Parser.Rule {
+		
+		public LettersRule (Quantifier quantifier, Case cond, String token) {
+			
+			this.quantifier = quantifier;
+			this.cond = cond;
+			this.token = token;
+			//this.listener = listener;
+			
+		}
+		
+		@Override
+		protected void ruleProcess () {
+		}
+		
+	}

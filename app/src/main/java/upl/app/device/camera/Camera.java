@@ -1,4 +1,4 @@
-  /*
+	/*
  * Copyright (c) 2020 - 2024 UPL Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,26 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-  
-  package upl.app.device.camera;
-  
-  import upl.app.Application;
-  
-  public abstract class Camera {
-    
-    protected Application app;
-    
-    protected int id;
-    
-    public Camera (Application app) {
-      this (app, 0);
-    }
-    
-    public Camera (Application app, int id) {
-      
-      this.app = app;
-      this.id = id;
-      
-    }
-    
-  }
+	
+	package upl.app.device.camera;
+	
+	import upl.app.Application;
+	
+	public abstract class Camera {
+		
+		protected Application app;
+		
+		protected int id;
+		
+		public Camera (Application app) {
+			this (app, 0);
+		}
+		
+		public Camera (Application app, int id) {
+			
+			this.app = app;
+			this.id = id;
+			
+		}
+		
+	}

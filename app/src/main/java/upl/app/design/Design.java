@@ -1,4 +1,4 @@
-  /*
+	/*
  * Copyright (c) 2020 - 2024 UPL Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-  
-  package upl.app.design;
-  
-  import upl.app.Application;
-  import upl.gui.views.TableView;
-  
-  public abstract class Design {
-    
-    protected Application app;
-    
-    public Design (Application app) {
-      this.app = app;
-    }
-    
-    public abstract TableView getTable ();
-    
-  }
+	
+	package upl.app.design;
+	
+	import upl.app.Application;
+	import upl.gui.views.TableView;
+	
+	public abstract class Design {
+		
+		protected Application app;
+		
+		public Design (Application app) {
+			this.app = app;
+		}
+		
+		public abstract TableView getTable ();
+		
+	}

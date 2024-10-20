@@ -65,3 +65,4 @@
 - [] @Deprecated ("Description")
 - [] @Value (">=" , 0)
 - [] @VisibleForTesting ?
+- [] @Stated - Constructor which automatically overrided in childrens

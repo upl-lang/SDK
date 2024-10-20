@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *			http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,14 +18,14 @@ package android.util;
 
 /**
  * Simple interface for printing text, allowing redirection to various
- * targets.  Standard implementations are {@link android.util.LogPrinter},
+ * targets.	Standard implementations are {@link android.util.LogPrinter},
  * {@link android.util.StringBuilderPrinter}, and
  * {@link android.util.PrintWriterPrinter}.
  */
 public interface Printer {
-    /**
-     * Write a line of text to the output.  There is no need to terminate
+		/**
+     * Write a line of text to the output.	There is no need to terminate
      * the given string with a newline.
      */
-    void println(String x);
+		void println(String x);
 }

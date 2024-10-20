@@ -1,4 +1,4 @@
-  /*
+	/*
  * Copyright (c) 2020 - 2024 UPL Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,22 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-  
-  package upl.parser.rules;
-  
-  public class RuleStar extends RuleOr { // A*
-    
-    public RuleStar (Object rules) {
-      super (rules);
-    }
-    
-    @Override
-    protected void process () {
-      
-      while (getToken ())
-        if (!checkTokens ())
-          break;
-      
-    }
-    
-  }
+	
+	package upl.parser.rules;
+	
+	public class RuleStar extends RuleOr { // A*
+		
+		public RuleStar (Object rules) {
+			super (rules);
+		}
+		
+		@Override
+		public void process () {
+			
+			while (getToken ())
+				if (!checkTokens ())
+					break;
+			
+		}
+		
+	}
