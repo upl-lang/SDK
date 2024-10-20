@@ -12,17 +12,17 @@ import javax.annotation.meta.When;
 @Retention(RetentionPolicy.RUNTIME)
 @TypeQualifier(applicableTo = String.class)
 public @interface MatchesPattern {
-    int flags() default 0;
+		int flags() default 0;
 
-    @RegEx
-    String value();
+		@RegEx
+		String value();
 
-    public static class Checker implements TypeQualifierValidator<MatchesPattern> {
-        public When forConstantValue(MatchesPattern annotation, Object value) {
-            if (Pattern.compile(annotation.value(), annotation.flags()).matcher((String) value).matches()) {
-                return When.ALWAYS;
-            }
-            return When.NEVER;
-        }
-    }
+		public static class Checker implements TypeQualifierValidator<MatchesPattern> {
+				public When forConstantValue(MatchesPattern annotation, Object value) {
+						if (Pattern.compile(annotation.value(), annotation.flags()).matcher((String) value).matches()) {
+								return When.ALWAYS;
+						}
+						return When.NEVER;
+				}
+		}
 }

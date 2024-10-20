@@ -1,4 +1,4 @@
-  /*
+	/*
  * Copyright (c) 2020 - 2024 UPL Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-  
-  package upl2.parser;
-  
-  public class ParserException extends RuntimeException {
-    
-    public ParserException (String str) {
-      super (str);
-    }
-    
-  }
+	
+	package upl2.parser;
+	
+	public class ParserException extends RuntimeException {
+		
+		public ParserException (String str) {
+			super (str);
+		}
+		
+	}

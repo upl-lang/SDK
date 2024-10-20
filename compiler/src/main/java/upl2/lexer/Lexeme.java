@@ -1,4 +1,4 @@
-  /*
+	/*
  * Copyright (c) 2020 - 2024 UPL Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,27 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-  
-  package upl2.lexer;
-  
-  import upl2.parser.Parser;
-  
-  public class Lexeme {
-    
-    public Parser.Rule[] rules;
-    
-    protected String name;
-    
-    public Lexeme (String name, Parser.Rule... rules) {
-      
-      this.name = name;
-      this.rules = rules;
-      
-    }
-    
-    @Override
-    public String toString () {
-      return name;
-    }
-    
-  }
+	
+	package upl2.lexer;
+	
+	import upl2.parser.Parser;
+	
+	public class Lexeme {
+		
+		public Parser.Rule[] rules;
+		
+		protected String name;
+		
+		public Lexeme (String name, Parser.Rule... rules) {
+			
+			this.name = name;
+			this.rules = rules;
+			
+		}
+		
+		@Override
+		public String toString () {
+			return name;
+		}
+		
+	}

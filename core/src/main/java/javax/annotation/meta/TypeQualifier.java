@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 @Target({ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TypeQualifier {
-    Class<?> applicableTo() default Object.class;
+		Class<?> applicableTo() default Object.class;
 }

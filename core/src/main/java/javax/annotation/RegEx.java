@@ -14,19 +14,19 @@ import javax.annotation.meta.When;
 @TypeQualifierNickname
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RegEx {
-    When when() default When.ALWAYS;
+		When when() default When.ALWAYS;
 
-    public static class Checker implements TypeQualifierValidator<RegEx> {
-        public When forConstantValue(RegEx annotation, Object value) {
-            if (!(value instanceof String)) {
-                return When.NEVER;
-            }
-            try {
-                Pattern.compile((String) value);
-                return When.ALWAYS;
-            } catch (PatternSyntaxException e) {
-                return When.NEVER;
-            }
-        }
-    }
+		public static class Checker implements TypeQualifierValidator<RegEx> {
+				public When forConstantValue(RegEx annotation, Object value) {
+						if (!(value instanceof String)) {
+								return When.NEVER;
+						}
+						try {
+								Pattern.compile((String) value);
+								return When.ALWAYS;
+						} catch (PatternSyntaxException e) {
+								return When.NEVER;
+						}
+				}
+		}
 }

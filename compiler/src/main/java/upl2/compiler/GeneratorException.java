@@ -1,4 +1,4 @@
-  /*
+	/*
  * Copyright (c) 2020 - 2024 UPL Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-  
-  package upl2.compiler;
-  
-  import upl.json.JSONObject;
-  
-  public class GeneratorException extends RuntimeException {
-    
-    public JSONObject element;
-    
-    public GeneratorException (String mess, JSONObject element) {
-      
-      super (mess);
-      this.element = element;
-      
-    }
-    
-  }
+	
+	package upl2.compiler;
+	
+	import upl.json.JSONObject;
+	
+	public class GeneratorException extends RuntimeException {
+		
+		public JSONObject element;
+		
+		public GeneratorException (String mess, JSONObject element) {
+			
+			super (mess);
+			this.element = element;
+			
+		}
+		
+	}
