@@ -32,6 +32,7 @@
 	import java.net.Proxy;
 	import java.net.URL;
 	import java.net.URLEncoder;
+	import java.nio.charset.Charset;
 	import java.security.KeyManagementException;
 	import java.security.NoSuchAlgorithmException;
 	import java.security.SecureRandom;
@@ -51,15 +52,13 @@
 	import upl.core.Int;
 	import upl.core.Net;
 	import upl.core.Random;
-	import upl.core.exceptions.HttpRequestException;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.io.BufferedInputStream;
 	import upl.json.JSONArray;
 	import upl.json.JSONObject;
 	import upl.type.Strings;
 	import upl.util.ArrayList;
 	import upl.util.HashMap;
-	import upl.util.LinkedHashMap;
 	import upl.util.List;
 	import upl.util.Map;
 	
@@ -69,15 +68,26 @@
 		protected HttpStatus code;
 		protected int timeout = -1;
 		
+		protected HttpMethod method;
+		public static final int defTimeout = 30000;
+		public URL url;
+		public String mUrl;
+		protected JSONObject params = new JSONObject ();
+		
 		public HttpMethod[] additionalMethods = new HttpMethod[] { HttpMethod.OPTIONS, HttpMethod.HEAD, HttpMethod.PUT, HttpMethod.DELETE, HttpMethod.TRACE };
 		
-		protected final Map<String, Object> headers = new LinkedHashMap<> ();
-		
-		//public HttpRequest () {
-		//}
+		protected final JSONObject headers = new JSONObject ();
 		
 		public HttpRequest (HttpMethod method, String url) {
 			this (method, url, new HashMap<> ());
+		}
+		
+		public HttpRequest (HttpMethod method, URL url) {
+			
+			this (method, null, new HashMap<> ());
+			
+			this.url = url;
+			
 		}
 		
 		public HttpRequest (HttpMethod method, String url, Map<String, Object> params) {
@@ -87,21 +97,9 @@
 			
 			setParams (params);
 			
-		}
-		
-		public HttpRequest (HttpMethod method, URL url) {
-			
-			this.method = method;
-			this.url = url;
+			headers.setDefValue ("User-Agent", Net.getUserAgent ());
 			
 		}
-		
-		protected HttpMethod method;
-		protected String userAgent = Net.getUserAgent ();
-		public static final int defTimeout = 30000;
-		public URL url;
-		public String mUrl;
-		protected JSONObject params = new JSONObject ();
 		
 		protected void connect () throws HttpRequestException {
 			
@@ -121,9 +119,6 @@
 					if (cookies != null)
 						setHeader ("Cookie", cookies);
 					
-					if (userAgent == null) userAgent = Net.getUserAgent ();
-					setHeader ("User-Agent", userAgent);
-					
 					setMethod (method);
 					
 					for (String key : headers.keySet ())
@@ -131,7 +126,7 @@
 					
 					if (isJSON) {
 						
-						setContentType ("application/json; charset=UTF-8");
+						_setHeader ("Content-Type", "application/json; charset=UTF-8");
 						//_setHeader ("Accept", "application/json");
 						
 					}
@@ -187,15 +182,8 @@
 			
 		}
 		
-		public HttpRequest setUserAgent (String userAgent) {
-			
-			this.userAgent = userAgent;
-			return this;
-			
-		}
-		
 		public String getUserAgent () {
-			return userAgent;
+			return headers.getString ("User-Agent");
 		}
 		
 		protected String cookies;
@@ -243,7 +231,7 @@
 		}
 		
 		public HttpRequest setReferrer (String referrer) {
-			return setHeader ("referer", referrer);
+			return setHeader ("Referer", referrer);
 		}
 		
 		protected void setMethod (HttpMethod method) throws HttpRequestException {
@@ -253,14 +241,14 @@
 				if (method != null) {
 					
 					if (method.equals (HttpMethod.POST))
-						setContentType ("application/x-www-form-urlencoded");
+						_setHeader ("Content-Type", "application/x-www-form-urlencoded");
 					
 					if (Arrays.contains (method, new HttpMethod[] { HttpMethod.POST, HttpMethod.PUT }))
 						conn.setDoOutput (true);
 					
 					if (Arrays.contains (method, additionalMethods)) {
 						
-						setHeader ("X-HTTP-Method-Override", method);
+						_setHeader ("X-HTTP-Method-Override", method);
 						method = HttpMethod.POST;
 						
 					}
@@ -320,7 +308,7 @@
 		
 		public HttpRequest setHeader (String key, Object value) {
 			
-			headers.add (key, value);
+			headers.put (key, value);
 			
 			return this;
 			
@@ -340,10 +328,6 @@
 		
 		public HttpURLConnection getConnection () {
 			return conn;
-		}
-		
-		public Map<String, Object> getHeaders () {
-			return headers;
 		}
 		
 		public String getContent () throws HttpRequestException, OutOfMemoryException {
@@ -386,7 +370,7 @@
 					
 					case "gz": {
 						
-						setHeader ("Accept", "gzip, deflate");
+						_setHeader ("Accept", "gzip, deflate");
 						
 						is = new GZIPInputStream (is);
 						
@@ -519,7 +503,7 @@
 			try {
 				
 				_setHeader ("Connection", "Keep-Alive");
-				//_setHeader ("Content-Type", this.getMimeType (imagePath));
+				_setHeader ("Content-Type", file.getMimeType ());
 				_setHeader ("Content-Disposition", "attachment; filename=\"" + file + "\";");
 				
 				InputStream is = new FileInputStream (file);
@@ -556,15 +540,32 @@
 		
 		public HttpRequest send (Object value) throws HttpRequestException, OutOfMemoryException {
 			
-			data = value;
+			isJSON (value instanceof JSONArray || value instanceof JSONObject);
 			
-			if (value instanceof JSONArray || value instanceof JSONObject)
-				isJSON (true);
+			return send (String.valueOf (value).getBytes ());
 			
-			connect ();
+		}
+		
+		public HttpRequest send (Object value, Charset charset) throws HttpRequestException, OutOfMemoryException { // TODO
+			
+			isJSON (value instanceof JSONArray || value instanceof JSONObject);
+			
+			return send (String.valueOf (value).getBytes (charset));
+			
+		}
+		
+		public HttpRequest send (byte[] data) throws HttpRequestException, OutOfMemoryException {
 			
 			try {
-				getOutputStream ().write (String.valueOf (value).getBytes ());
+				
+				//this.data = value;
+				
+				connect ();
+				
+				_setHeader ("Content-Length", data.length);
+				
+				getOutputStream ().write (data);
+				
 			} catch (IOException e) {
 				throw new HttpRequestException (e);
 			} catch (OutOfMemoryError e) {
@@ -597,8 +598,8 @@
 					
 				}
 				
-				setContentType ("application/x-www-form-urlencoded");
-				setContentLength (postData.length ());
+				_setHeader ("Content-Type", "application/x-www-form-urlencoded");
+				_setHeader ("Content-Length", postData.length ());
 				
 				OutputStreamWriter writer = new OutputStreamWriter (getOutputStream ());
 				
@@ -613,12 +614,16 @@
 			
 		}
 		
+		public HttpRequest setUserAgent (String userAgent) {
+			return setHeader ("User-Agent", userAgent);
+		}
+		
 		public HttpRequest setContentLength (long length) {
-			return _setHeader ("Content-Length", length);
+			return setHeader ("Content-Length", length);
 		}
 		
 		public HttpRequest setContentType (String type) {
-			return _setHeader ("Content-Type", type);
+			return setHeader ("Content-Type", type);
 		}
 		
 		public long getLength () throws HttpRequestException {
@@ -635,8 +640,8 @@
 			
 		}
 		
-		public Map<String, String> getRequestCookies () {
-			return new Strings (cookies).explode (";", "=");
+		public JSONObject getRequestCookies () {
+			return new JSONObject (new Strings (cookies)).explode (";", "=");
 		}
 		
 		public static abstract class Auth {

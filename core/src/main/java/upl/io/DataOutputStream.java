@@ -19,6 +19,8 @@
 	import java.io.FilterOutputStream;
 	import java.io.IOException;
 	import java.io.OutputStream;
+	import upl.json.JSONArray;
+	import upl.json.JSONObject;
 	
 	public class DataOutputStream extends java.io.DataOutputStream {
 		
@@ -34,8 +36,24 @@
 			super (out);
 		}
 		
+		public void write (JSONArray data) throws IOException {
+			write (data.toString ());
+		}
+		
+		public void write (JSONObject data) throws IOException {
+			write (data.toString ());
+		}
+		
 		public void write (String mess) throws IOException {
 			write (mess.getBytes ());
+		}
+		
+		public void writeln () throws IOException {
+			writeln ("");
+		}
+		
+		public void writeln (String mess) throws IOException {
+			write (mess + "\n");
 		}
 		
 		@Override

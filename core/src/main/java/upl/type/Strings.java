@@ -744,12 +744,10 @@
 			
 			for (String item : explode (sep1)) {
 				
-				if (!item.equals ("")) {
-					
-					String[] values = item.split (sep2);
-					output.add (values[0].trim (), (values.length > 1 ? values[1] : ""));
-					
-				}
+				String[] values = item.split (sep2);
+				
+				if (!item.equals (""))
+					output.put (values[0].trim (), (values.length > 1 ? values[1] : ""));
 				
 			}
 			

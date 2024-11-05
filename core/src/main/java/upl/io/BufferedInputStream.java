@@ -29,8 +29,7 @@
 	import java.io.OutputStream;
 	import java.nio.charset.Charset;
 	import java.nio.charset.StandardCharsets;
-	import upl.core.Log;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.type.Strings;
 	import upl.util.List;
 	import upl.util.Map;

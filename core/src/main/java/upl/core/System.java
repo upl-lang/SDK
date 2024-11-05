@@ -12,7 +12,7 @@
 	import java.util.concurrent.TimeUnit;
 	import java.util.regex.Matcher;
 	import java.util.regex.Pattern;
-	import upl.core.exceptions.ConsoleException;
+	import upl.exceptions.ConsoleException;
 	import upl.util.ArrayList;
 	import upl.util.List;
 	

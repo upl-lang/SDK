@@ -27,9 +27,9 @@
 	import upl.type.Strings;
 	import upl.util.ArrayList;
 	import upl.util.List;
-	import upl.core.exceptions.ConsoleException;
-	import upl.core.exceptions.HttpRequestException;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.exceptions.ConsoleException;
+	import upl.http.HttpRequestException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.io.BufferedInputStream;
 	
 	public abstract class Archiver {
