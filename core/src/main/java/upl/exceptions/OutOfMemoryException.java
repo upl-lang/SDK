@@ -14,19 +14,30 @@
 	 * limitations under the License.
 	 */
 	
-	package uplx.server.http;
+	package upl.exceptions;
+	/*
+	 Created by Acuna on 27.01.2019
+	*/
 	
-	import uplx.server.Handler;
-	import uplx.server.router.RuleProcessor;
-	
-	public class RewriteRule extends uplx.server.router.RewriteRule<Request, Response> {
+	public class OutOfMemoryException extends RuntimeException {
 		
-		public RewriteRule (Handler<Request, Response> handler) {
-			super (handler);
+		public OutOfMemoryException (Throwable e) {
+			super (e);
 		}
 		
-		public RewriteRule (RuleProcessor<Request, Response> processor) {
-			super (processor);
+		@Override
+		public Exception getCause () {
+			return (Exception) super.getCause ();
+		}
+		
+		@Override
+		public String getMessage () {
+			return "Out of memory";
+		}
+		
+		@Override
+		public String toString () {
+			return getClass () + ": " + getMessage ();
 		}
 		
 	}

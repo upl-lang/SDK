@@ -13,7 +13,7 @@
 	
 	import upl.core.Int;
 	import upl.core.Net;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.storage.adapters.Dropbox;
 	import upl.storage.adapters.GDrive;
 	import upl.storage.adapters.SDCard;

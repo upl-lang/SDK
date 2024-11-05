@@ -32,7 +32,7 @@
 		public static HttpMethod get (String method) {
 			
 			for (HttpMethod method2 : values ())
-				if (method2.name ().equals (method))
+				if (method2.getName ().equals (method))
 					return method2;
 			
 			return null;

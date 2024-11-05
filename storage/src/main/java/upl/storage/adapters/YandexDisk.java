@@ -14,8 +14,8 @@
 	import upl.core.Arrays;
 	import upl.core.Int;
 	import upl.core.Net;
-	import upl.core.exceptions.HttpRequestException;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.http.HttpRequestException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.core.File;
 	import upl.core.Log;
 	import upl.http.HttpRequest;

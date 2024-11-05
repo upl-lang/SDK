@@ -24,8 +24,8 @@
 	import java.text.ParseException;
 	import java.util.Properties;
 	
-	import upl.core.exceptions.HttpRequestException;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.http.HttpRequestException;
+	import upl.exceptions.OutOfMemoryException;
 	
 	import java.lang.String;
 	import upl.io.BufferedInputStream;

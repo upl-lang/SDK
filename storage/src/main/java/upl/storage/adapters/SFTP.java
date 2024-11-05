@@ -12,7 +12,7 @@
 	
 	import upl.core.Arrays;
 	import upl.core.Int;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.json.JSONException;
 	import upl.json.JSONObject;
 	import upl.io.BufferedInputStream;

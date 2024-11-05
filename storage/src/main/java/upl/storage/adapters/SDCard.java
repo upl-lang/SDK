@@ -5,7 +5,6 @@
 	import upl.json.JSONException;
 	import upl.json.JSONObject;
 	
-	import java.io.FileInputStream;
 	import java.io.IOException;
 	
 	import java.net.MalformedURLException;
@@ -16,7 +15,7 @@
 	import upl.util.List;
 	
 	import upl.core.Int;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.storage.Adapter;
 	import upl.storage.Item;
 	import upl.storage.Storage;

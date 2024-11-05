@@ -17,6 +17,11 @@
 			object = new java.util.ArrayList<> (length);
 		}
 		
+		@SafeVarargs
+		public ArrayList (V... values) {
+			super (values);
+		}
+		
 		@Override
 		public int size () {
 			return object.size ();

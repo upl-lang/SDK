@@ -61,4 +61,8 @@
 			
 		}
 		
+		public String getString () throws IOException {
+			return new String (getBytes ());
+		}
+		
 	}

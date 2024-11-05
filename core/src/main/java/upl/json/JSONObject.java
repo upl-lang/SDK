@@ -20,6 +20,7 @@
 	import java.util.Iterator;
 	
 	import upl.core.Struct;
+	import upl.type.Strings;
 	import upl.util.Map;
 	
 	/**
@@ -629,6 +630,31 @@
 					put (key, array.get (key));
 			
 			return this;
+			
+		}
+		
+		protected Strings str;
+		
+		public JSONObject (Strings str) {
+			this.str = str;
+		}
+		
+		public JSONObject explode (String sep1, String sep2) {
+			return explode (sep1, sep2, new JSONObject ());
+		}
+		
+		public JSONObject explode (String sep1, String sep2, JSONObject output) {
+			
+			for (String item : str.explode (sep1)) {
+				
+				String[] values = item.split (sep2);
+				
+				if (!item.equals (""))
+					output.put (values[0].trim (), (values.length > 1 ? values[1] : ""));
+				
+			}
+			
+			return output;
 			
 		}
 		

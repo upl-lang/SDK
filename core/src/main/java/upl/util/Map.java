@@ -127,16 +127,13 @@
 		/**
      * Validate map.
      *
-     * @return the map
      */
-		public Map<K, V> validate () {
+		public void validate () {
 			
 			List<?> missed = diff (keySet (), required);
 			
 			if (missed.size () > 0)
 				throw new IllegalArgumentException ("Required keys missed: " + missed.implode (", "));
-			
-			return this;
 			
 		}
 		

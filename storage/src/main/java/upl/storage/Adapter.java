@@ -9,7 +9,7 @@
 	
 	import upl.http.HttpRequest;
 	import upl.core.Net;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.http.HttpStatus;
 	import upl.type.Strings;
 	import upl.util.HashMap;

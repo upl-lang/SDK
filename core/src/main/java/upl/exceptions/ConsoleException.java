@@ -14,11 +14,22 @@
 	 * limitations under the License.
 	 */
 	
-	package uplx.server;
+	package upl.exceptions;
 	
-	public abstract class ServerListener {
+	import upl.util.List;
+	
+	public class ConsoleException extends Exception {
 		
-		public void onConnect () {}
-		public void onDisconnect () {}
+		public ConsoleException (Exception e) {
+			super (e);
+		}
+		
+		public ConsoleException (List<?> e) {
+			this (e.implode ());
+		}
+		
+		public ConsoleException (String e) {
+			super (e);
+		}
 		
 	}

@@ -12,8 +12,8 @@
 	import upl.http.HttpMethod;
 	import upl.http.HttpRequest;
 	import upl.core.Int;
-	import upl.core.exceptions.HttpRequestException;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.http.HttpRequestException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.io.BufferedInputStream;
 	import upl.json.JSONObject;
 	import upl.util.ArrayList;
