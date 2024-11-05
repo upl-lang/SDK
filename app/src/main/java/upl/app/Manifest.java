@@ -18,7 +18,7 @@
 	
 	import java.io.IOException;
 	import upl.core.File;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.json.JSONObject;
 	
 	public class Manifest extends JSONObject {

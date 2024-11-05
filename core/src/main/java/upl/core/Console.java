@@ -9,7 +9,7 @@
 	import java.io.InputStreamReader;
 	import java.util.HashMap;
 	import java.util.Map;
-	import upl.core.exceptions.ConsoleException;
+	import upl.exceptions.ConsoleException;
 	import upl.type.Strings;
 	import upl.util.ArrayList;
 	import upl.util.List;

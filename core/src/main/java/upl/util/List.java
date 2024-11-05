@@ -12,6 +12,14 @@
 			
 		}
 		
+		@SafeVarargs
+		public List (V... values) {
+			
+			for (V value : values)
+				put (value);
+			
+		}
+		
 		public int length () {
 			return size ();
 		}

@@ -4,7 +4,6 @@
 			*/
 	
 	import java.io.BufferedWriter;
-	import java.io.FileInputStream;
 	import java.io.FileNotFoundException;
 	import java.io.FileOutputStream;
 	import java.io.FileWriter;
@@ -14,8 +13,8 @@
 	import java.io.PrintWriter;
 	
 	import upl.cipher.exceptions.EncryptException;
-	import upl.core.exceptions.ConsoleException;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.exceptions.ConsoleException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.exceptions.ZeroException;
 	import upl.io.BufferedInputStream;
 	import upl.type.Strings;

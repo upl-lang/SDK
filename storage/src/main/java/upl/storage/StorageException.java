@@ -3,8 +3,8 @@
 	 Created by Acuna on 31.07.2017
 	*/
 	
-	import upl.core.exceptions.HttpRequestException;
-	import upl.core.exceptions.OutOfMemoryException;
+	import upl.http.HttpRequestException;
+	import upl.exceptions.OutOfMemoryException;
 	import upl.http.HttpRequest;
 	import upl.json.JSONException;
 	import upl.json.JSONObject;

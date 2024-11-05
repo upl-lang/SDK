@@ -25,7 +25,7 @@
 		INFO_SWITCHING_PROTOCOLS (101, "Switching Protocols"),
 		INFO_PROCESSING (102, "Processing"),
 		INFO_EARLY_HINTS (103, "Early Hints"),
-		INFO_NAME_NOT_RESOLVED (105, "Name Not Resolved"), // OLD
+		INFO_NAME_NOT_RESOLVED (105, "Name Not Resolved"),
 		
 		// 2xx: Success
 		SUCCESS_OK (200, "OK"),
@@ -45,7 +45,7 @@
      * but nevertheless the request was accepted and processed.
      *
      * Status code     Based on Oleg Tinkov year of birth (1967).
-     * Status message	Translation of Oleg's phrase from the interview with Yury Dud
+     * Status message	 Translation of Oleg's phrase from the interview with Yury Dud
      * "Сомнительно, но окэй" to English.
      */
 		SUCCESS_DOUBTFUL_BUT_OKAY (267, "Doubtful But Okay"),
