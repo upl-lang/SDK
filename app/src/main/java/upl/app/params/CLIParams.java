@@ -19,12 +19,16 @@
 	import upl.app.Params;
 	import upl.core.Int;
 	import upl.util.ArrayList;
+	import upl.util.HashMap;
 	import upl.util.List;
+	import upl.util.Map;
 	
 	public class CLIParams extends Params {
 		
 		protected String[] args;
 		protected List<String> files = new ArrayList<> ();
+		
+		protected Map<String, String> shortKeys = new HashMap<> ();
 		
 		protected int i = 0;
 		protected String key;
@@ -84,9 +88,18 @@
 			return files;
 		}
 		
+		public void setShortValue (String shortKey, String longKey) {
+			shortKeys.put (shortKey, longKey);
+		}
+		
 		@Override
 		protected RuntimeException typeMismatch (Object indexOrName, Object actual, String requiredType) {
 			throw new IllegalArgumentException (actual == null ? "Value at " + indexOrName + " is null." : "Value " + actual + " at " + indexOrName + " of type " + actual.getClass ().getName () + " cannot be converted to " + requiredType + ".");
+		}
+		
+		@Override
+		protected void assertNull (String key, Object value) {
+			throw new IllegalArgumentException ("Value with key " + key + " is null");
 		}
 		
 	}

@@ -16,20 +16,18 @@
 	
 	package upl.app;
 	
-	import upl.core.Struct;
-	import upl.json.JSONArray;
-	import upl.util.HashMap;
-	import upl.util.Map;
+	import upl.json.JSONObject;
+	import upl.util.ArrayList;
+	import upl.util.List;
 	
-	public abstract class Params extends Struct {
+	public abstract class Params extends JSONObject {
 		
-		protected Map<String, String> shortKeys = new HashMap<> ();
-		protected Map<String, JSONArray> arrays = new HashMap<> ();
+		protected List<String> arrayKeys = new ArrayList<> ();
 		
 		public abstract void process ();
 		
-		public void setShortValue (String shortKey, String longKey) {
-			shortKeys.put (shortKey, longKey);
+		public void setArrayValue (String key) {
+			arrayKeys.put (key);
 		}
 		
 	}

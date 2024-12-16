@@ -48,7 +48,7 @@
 	 */
 	public class JSONArray {
 		
-		private List<Object> array = new ArrayList<> ();
+		protected List<Object> array = new ArrayList<> ();
 		
 		/**
 		 * Creates a {@code JSONArray} with no values.
@@ -413,7 +413,7 @@
 		 */
 		public Boolean getBoolean (int index) {
 			Object object = get (index);
-			Boolean result = Struct.toBoolean (object);
+			Boolean result = Struct.toBool (object);
 			if (result == null) {
 				throw typeMismatch (index, object, "boolean");
 			}
@@ -434,7 +434,7 @@
 		 */
 		public Boolean optBoolean (int index, boolean fallback) {
 			Object object = opt (index);
-			Boolean result = Struct.toBoolean (object);
+			Boolean result = Struct.toBool (object);
 			return result != null ? result : fallback;
 		}
 		

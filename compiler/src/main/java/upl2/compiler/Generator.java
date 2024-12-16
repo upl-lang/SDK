@@ -79,9 +79,9 @@
 				JSONObject element = elements.getJSONObject (i);
 				
 				hasName = !element.isNull (JavaGenerator.Element.NAME) && !element.getString (JavaGenerator.Element.NAME).equals ("");
-				isStatic = element.has (JavaGenerator.Keyword.STATIC) && element.getBoolean (JavaGenerator.Keyword.STATIC);
-				isAbstract = element.has (JavaGenerator.Keyword.ABSTRACT) && element.getBoolean (JavaGenerator.Keyword.ABSTRACT);
-				isFinal = element.has (JavaGenerator.Keyword.FINAL) && element.getBoolean (JavaGenerator.Keyword.FINAL);
+				isStatic = element.has (JavaGenerator.Keyword.STATIC) && element.getBool (JavaGenerator.Keyword.STATIC);
+				isAbstract = element.has (JavaGenerator.Keyword.ABSTRACT) && element.getBool (JavaGenerator.Keyword.ABSTRACT);
+				isFinal = element.has (JavaGenerator.Keyword.FINAL) && element.getBool (JavaGenerator.Keyword.FINAL);
 				
 				setElement (level, indent, i, element);
 				

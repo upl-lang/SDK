@@ -48,16 +48,8 @@
 			write (mess.getBytes ());
 		}
 		
-		public void writeln () throws IOException {
-			writeln ("");
-		}
-		
-		public void writeln (String mess) throws IOException {
-			write (mess + "\n");
-		}
-		
 		@Override
-		public void write (byte[] mess) throws IOException {
+		public void write (byte... mess) throws IOException {
 			
 			writeInt (mess.length);
 			super.write (mess);

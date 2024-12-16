@@ -25,6 +25,8 @@
 		
 		protected Map<String, Object> defValues = new HashMap<> ();
 		
+		protected abstract void assertNull (String key, Object value);
+		
 		/**
 		 * Returns the value mapped by {@code name} if it exists and is an int or can be coerced
 		 * to a String.
@@ -39,8 +41,8 @@
 		 * to a boolean.
 		 * Returns {@code fallback} otherwise.
 		 */
-		public final Boolean getBoolean (String key) {
-			return getBoolean (key, (Boolean) defValues.get (key));
+		public final Boolean getBool (String key) {
+			return getBool (key, (Boolean) defValues.get (key));
 		}
 		
 		/**
@@ -98,10 +100,10 @@
 		 * Returns the value mapped by {@code key} if it exists and is a boolean or can be
 		 * coerced to a boolean.
 		 */
-		public final Boolean getBoolean (String name, Boolean defValue) {
+		public final Boolean getBool (String name, Boolean defValue) {
 			
 			Object object = get (name, defValue);
-			Boolean result = toBoolean (object);
+			Boolean result = toBool (object);
 			
 			if (result == null)
 				throw typeMismatch (name, object, "Boolean");
@@ -189,7 +191,7 @@
 		 * Returns {@code fallback} otherwise.
 		 */
 		public final Boolean optBoolean (String key) {
-			return getBoolean (key, false);
+			return getBool (key, false);
 		}
 		
 		/**
@@ -247,7 +249,7 @@
 			
 		}
 		
-		public static Boolean toBoolean (Object value) {
+		public static Boolean toBool (Object value) {
 			
 			if (value instanceof Boolean)
 				return (Boolean) value;

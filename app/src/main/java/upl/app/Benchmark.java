@@ -32,7 +32,6 @@
 		
 		public void startTime () {
 			startTime (defName);
-			
 		}
 		
 		public void startTime (String name) {

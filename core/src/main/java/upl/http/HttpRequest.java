@@ -50,6 +50,7 @@
 	import upl.core.Base64;
 	import upl.core.File;
 	import upl.core.Int;
+	import upl.core.Log;
 	import upl.core.Net;
 	import upl.core.Random;
 	import upl.exceptions.OutOfMemoryException;
@@ -126,7 +127,7 @@
 					
 					if (isJSON) {
 						
-						_setHeader ("Content-Type", "application/json; charset=UTF-8");
+						_setHeader ("Content-Type", "application/json");
 						//_setHeader ("Accept", "application/json");
 						
 					}
@@ -577,6 +578,8 @@
 		}
 		
 		public HttpRequest send (Map<String, Object> data) throws HttpRequestException {
+			
+			isJSON (true);
 			
 			connect ();
 			

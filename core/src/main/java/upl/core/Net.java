@@ -80,11 +80,11 @@
 			
 		}
 		
-		public static String urlQueryEncode (Map<String, ?> query) throws UnsupportedEncodingException {
+		public static String urlQueryEncode (Map<String, Object> query) throws UnsupportedEncodingException {
 			return urlQueryEncode (query, true);
 		}
 		
-		public static String urlQueryEncode (Map<String, ?> query, boolean question) throws UnsupportedEncodingException {
+		public static String urlQueryEncode (Map<String, Object> query, boolean question) throws UnsupportedEncodingException {
 			
 			List<String> data = new ArrayList<> ();
 			
